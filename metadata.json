@@ -1,0 +1,8 @@
+{
+  "name": "تئوری‌ها و نظریه‌های تغییر رفتار ۲",
+  "description": "دوره خودآموز دکتری: سه نظریه آموزش سلامت بزرگسالان — فریره، شبکه اجتماعی و بازاریابی اجتماعی",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}
