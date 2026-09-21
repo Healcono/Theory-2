@@ -1,0 +1,975 @@
+<title>تئوری‌ها و نظریه‌های تغییر رفتار ۲</title>
+<meta name="description" content="دوره خودآموز دکتری: سه نظریه آموزش سلامت بزرگسالان — فریره، شبکه اجتماعی و بازاریابی اجتماعی">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lalezar&family=Vazirmatn:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --navy:#0d1a33;
+    --navy-2:#152a4f;
+    --navy-3:#1c3562;
+    --crimson:#a6283c;
+    --crimson-2:#c23349;
+    --turquoise:#2fa6a0;
+    --turquoise-2:#4fc6bf;
+    --ivory:#f3ead3;
+    --plaster:#e8dcc0;
+    --gold:#c9a24b;
+    --gold-2:#e0bd6e;
+    --ink:#241a0e;
+    --line: rgba(201,162,75,.35);
+    --shadow: 0 10px 30px rgba(5,10,25,.35);
+    color-scheme: dark;
+  }
+  *{box-sizing:border-box;}
+  html,body{margin:0;padding:0;}
+  body{
+    background:var(--navy);
+    color:var(--ivory);
+    font-family:'Vazirmatn', Tahoma, 'Segoe UI', sans-serif;
+    direction:rtl;
+    line-height:1.9;
+    -webkit-font-smoothing:antialiased;
+    padding-inline:0;
+  }
+  body::before{
+    content:"";
+    position:fixed; inset:0; z-index:-1;
+    background:
+      radial-gradient(1100px 600px at 85% -10%, rgba(47,166,160,.14), transparent 60%),
+      radial-gradient(900px 500px at 5% 110%, rgba(166,40,60,.16), transparent 60%),
+      var(--navy);
+  }
+  h1,h2,h3,h4{font-family:'Lalezar','Vazirmatn',sans-serif; font-weight:400; letter-spacing:.3px; text-wrap:balance; color:var(--gold-2); margin:0 0 .5em;}
+  p{margin:0 0 1em; max-width:72ch;}
+  a{color:var(--turquoise-2);}
+  img,svg{max-width:100%;}
+  .wrap{max-width:1080px; margin:0 auto; padding-inline:20px;}
+  [hidden]{display:none!important;}
+
+  /* ---------- tile ornament pieces ---------- */
+  .tile-border{
+    height:14px; width:100%;
+    background-image: repeating-linear-gradient(135deg, var(--gold) 0 10px, transparent 10px 20px),
+                       repeating-linear-gradient(45deg, var(--crimson) 0 10px, transparent 10px 20px);
+    background-size:28px 14px, 28px 14px;
+    background-position:0 0, 14px 0;
+    opacity:.85;
+  }
+  .rosette{ color:var(--gold); }
+
+  /* ---------- top nav ---------- */
+  header.top{
+    position:sticky; top:0; z-index:40;
+    background:linear-gradient(180deg, var(--navy-2), var(--navy));
+    border-bottom:1px solid var(--line);
+    backdrop-filter:blur(6px);
+  }
+  .nav-row{
+    display:flex; align-items:center; gap:14px; padding-block:12px; flex-wrap:wrap;
+  }
+  .brand{display:flex; align-items:center; gap:10px; margin-inline-left:auto;}
+  .brand h1{font-size:1.35rem; margin:0;}
+  .brand small{display:block; font-family:'Vazirmatn'; font-size:.72rem; color:var(--plaster); opacity:.8; font-weight:400;}
+  nav.tabs{display:flex; gap:8px; flex-wrap:wrap;}
+  nav.tabs button{
+    font-family:inherit; cursor:pointer; border:1px solid var(--line);
+    background:rgba(255,255,255,.03); color:var(--ivory);
+    padding:9px 18px; border-radius:999px; font-size:.95rem; transition:.15s;
+  }
+  nav.tabs button:hover{ border-color:var(--gold); background:rgba(201,162,75,.12); }
+  nav.tabs button[aria-current="true"]{
+    background:linear-gradient(135deg, var(--crimson), var(--crimson-2));
+    border-color:var(--crimson-2); color:#fff; box-shadow:var(--shadow);
+  }
+
+  /* ---------- home / hero ---------- */
+  .hero{ padding-block: 56px 40px; text-align:center; }
+  .hero .eyebrow{
+    display:inline-flex; align-items:center; gap:8px; color:var(--turquoise-2);
+    font-size:.8rem; letter-spacing:.5px; border:1px solid var(--line); padding:6px 14px; border-radius:999px; margin-bottom:18px;
+  }
+  .hero h2{font-size:clamp(2rem,5vw,3.1rem); margin-bottom:.3em;}
+  .hero p.lead{max-width:62ch; margin-inline:auto; color:var(--plaster); font-size:1.08rem;}
+  .arches{
+    display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:22px; margin-block:44px;
+  }
+  .arch-card{
+    position:relative; background:linear-gradient(180deg, var(--navy-3), var(--navy-2));
+    border:1px solid var(--line); border-radius:120px 120px 14px 14px; padding:34px 22px 26px;
+    text-align:center; box-shadow:var(--shadow); cursor:pointer; transition:.2s transform,.2s box-shadow;
+  }
+  .arch-card:hover{transform:translateY(-4px); box-shadow:0 16px 40px rgba(5,10,25,.5);}
+  .arch-card .num{
+    width:46px;height:46px;border-radius:50%;display:flex;align-items:center;justify-content:center;
+    margin:0 auto 14px; background:radial-gradient(circle at 35% 30%, var(--gold-2), var(--gold));
+    color:var(--ink); font-family:'Lalezar'; font-size:1.3rem; box-shadow:0 0 0 4px rgba(201,162,75,.18);
+  }
+  .arch-card h3{font-size:1.25rem; margin-bottom:.35em;}
+  .arch-card p{color:var(--plaster); font-size:.92rem; margin-inline:auto;}
+  .arch-card .theorist{color:var(--turquoise-2); font-size:.82rem; display:block; margin-top:10px;}
+  .arch-card button.enter{
+    margin-top:16px; font-family:inherit; cursor:pointer; border:1px solid var(--gold); color:var(--gold-2);
+    background:transparent; padding:7px 20px; border-radius:999px; font-size:.85rem;
+  }
+  .arch-card button.enter:hover{background:rgba(201,162,75,.14);}
+
+  .home-note{
+    background:rgba(47,166,160,.08); border:1px dashed var(--line); border-radius:16px; padding:20px 24px; margin-block:30px;
+  }
+  .home-note h4{color:var(--turquoise-2); font-size:1rem; margin-bottom:.4em;}
+
+  /* ---------- lesson layout ---------- */
+  .lesson-hero{ padding-block:34px 18px; }
+  .lesson-hero .tag{color:var(--turquoise-2); font-size:.85rem;}
+  .lesson-hero h2{font-size:clamp(1.6rem,4vw,2.4rem);}
+  .lesson-hero .meta{display:flex; gap:16px; flex-wrap:wrap; color:var(--plaster); font-size:.85rem; margin-top:10px;}
+  .lesson-hero .meta span{display:flex; align-items:center; gap:6px;}
+
+  .subnav{
+    position:sticky; top:64px; z-index:30; background:rgba(13,26,51,.92); backdrop-filter:blur(6px);
+    border-bottom:1px solid var(--line); border-top:1px solid var(--line); overflow-x:auto;
+  }
+  .subnav .wrap{display:flex; gap:8px; padding-block:10px;}
+  .subnav a{
+    white-space:nowrap; text-decoration:none; color:var(--plaster); font-size:.85rem;
+    border:1px solid var(--line); padding:7px 14px; border-radius:999px; flex:none;
+  }
+  .subnav a:hover{color:var(--gold-2); border-color:var(--gold);}
+
+  section.block{ padding-block:38px; border-bottom:1px solid var(--line); }
+  section.block:last-of-type{border-bottom:none;}
+  .block h3.section-title{
+    display:flex; align-items:center; gap:12px; font-size:1.5rem; margin-bottom:20px;
+  }
+  .block h3.section-title .chip{
+    width:34px;height:34px;border-radius:9px; display:flex;align-items:center;justify-content:center;
+    background:linear-gradient(135deg, var(--turquoise), var(--turquoise-2)); color:var(--navy); font-size:1.1rem; flex:none;
+  }
+
+  .story-card{
+    background:linear-gradient(180deg, rgba(232,220,192,.06), rgba(232,220,192,.02));
+    border-inline-start:4px solid var(--crimson); border-radius:4px 14px 14px 4px;
+    padding:22px 24px; position:relative;
+  }
+  .story-card::before{content:"❝"; position:absolute; top:6px; right:16px; font-size:2rem; color:var(--crimson-2); opacity:.5; font-family:Georgia,serif;}
+  .story-card h4{color:var(--ivory); font-family:'Vazirmatn'; font-weight:700; font-size:1.05rem;}
+
+  .concept-grid{display:grid; grid-template-columns:repeat(auto-fit,minmax(230px,1fr)); gap:16px; margin-block:18px;}
+  .concept{
+    background:rgba(255,255,255,.03); border:1px solid var(--line); border-radius:14px; padding:16px 18px;
+  }
+  .concept .k{color:var(--gold-2); font-weight:700; display:block; margin-bottom:4px; font-size:.98rem;}
+  .concept p{font-size:.9rem; color:var(--plaster); margin:0;}
+
+  .scenario-steps{list-style:none; margin:0; padding:0; display:flex; flex-direction:column; gap:14px;}
+  .scenario-steps li{
+    display:flex; gap:14px; background:rgba(255,255,255,.03); border:1px solid var(--line); border-radius:14px; padding:16px 18px;
+  }
+  .scenario-steps .idx{
+    flex:none; width:34px;height:34px;border-radius:50%; display:flex; align-items:center;justify-content:center;
+    background:radial-gradient(circle at 35% 30%, var(--gold-2), var(--gold)); color:var(--ink); font-family:'Lalezar'; font-size:1rem;
+  }
+  .scenario-steps b{color:var(--ivory);}
+  .scenario-steps p{margin:.3em 0 0; font-size:.92rem; color:var(--plaster);}
+
+  figure.infographic{margin:24px 0 6px; text-align:center;}
+  figure.infographic figcaption{font-size:.85rem; color:var(--plaster); margin-top:10px;}
+
+  .exercise-card{
+    background:linear-gradient(180deg, rgba(166,40,60,.10), rgba(166,40,60,.03));
+    border:1px solid rgba(166,40,60,.4); border-radius:16px; padding:22px 24px;
+  }
+  .exercise-card h4{color:var(--crimson-2); font-family:'Vazirmatn'; font-weight:700;}
+  .exercise-card ol{padding-inline-start:22px; margin:.6em 0 0;}
+  .exercise-card li{margin-bottom:8px; font-size:.95rem;}
+
+  .video-slot{
+    border:2px dashed var(--line); border-radius:16px; padding:34px 20px; text-align:center; color:var(--plaster);
+    background:rgba(255,255,255,.02);
+  }
+  .video-slot .icon{font-size:2rem; margin-bottom:8px;}
+
+  /* quiz */
+  .quiz-progress{display:flex; align-items:center; gap:10px; margin-bottom:20px; font-size:.85rem; color:var(--plaster);}
+  .quiz-progress .bar{flex:1; height:8px; border-radius:99px; background:rgba(255,255,255,.08); overflow:hidden;}
+  .quiz-progress .bar i{display:block; height:100%; width:0%; background:linear-gradient(90deg, var(--turquoise), var(--gold)); transition:.3s width;}
+  .qcard{background:rgba(255,255,255,.03); border:1px solid var(--line); border-radius:16px; padding:18px 20px; margin-bottom:16px;}
+  .qcard .qtext{font-weight:700; color:var(--ivory); margin-bottom:12px; font-size:.98rem;}
+  .qcard .opts{display:flex; flex-direction:column; gap:8px;}
+  .qcard button.opt{
+    text-align:right; font-family:inherit; cursor:pointer; border:1px solid var(--line); background:rgba(255,255,255,.02);
+    color:var(--ivory); padding:10px 14px; border-radius:10px; font-size:.9rem; transition:.15s;
+  }
+  .qcard button.opt:hover:not(:disabled){border-color:var(--turquoise-2);}
+  .qcard button.opt.correct{border-color:var(--turquoise); background:rgba(47,166,160,.18); font-weight:700;}
+  .qcard button.opt.wrong{border-color:var(--crimson); background:rgba(166,40,60,.18);}
+  .qcard button.opt:disabled{cursor:default; opacity:.85;}
+  .qcard .explain{margin-top:10px; font-size:.85rem; color:var(--plaster); border-top:1px dashed var(--line); padding-top:10px;}
+  .quiz-result{
+    text-align:center; padding:26px; border-radius:16px; background:linear-gradient(135deg, var(--navy-3), var(--navy-2));
+    border:1px solid var(--gold);
+  }
+  .quiz-result .score{font-family:'Lalezar'; font-size:2.4rem; color:var(--gold-2);}
+  .btn-reset{
+    margin-top:12px; font-family:inherit; cursor:pointer; border:1px solid var(--gold); color:var(--gold-2);
+    background:transparent; padding:8px 20px; border-radius:999px; font-size:.9rem;
+  }
+
+  .refs{padding-inline-start:0; list-style:none; margin:0;}
+  .refs li{
+    font-size:.86rem; color:var(--plaster); margin-bottom:10px; padding-inline-start:14px; border-inline-start:2px solid var(--gold);
+    direction:ltr; text-align:right; unicode-bidi:plaintext;
+  }
+
+  footer.site{padding-block:40px; text-align:center; color:var(--plaster); font-size:.85rem;}
+  footer.site .wrap{display:flex; flex-direction:column; gap:6px; align-items:center;}
+  html{scroll-behavior:smooth;}
+  section.block{scroll-margin-top:132px;}
+  .best-score{font-size:.8rem; color:var(--turquoise-2); margin-bottom:10px;}
+
+  @media (max-width:560px){
+    .brand{margin-inline-left:0;}
+    .nav-row{justify-content:center;}
+    .subnav{top:112px;}
+  }
+</style>
+
+<header class="top">
+  <div class="tile-border"></div>
+  <div class="wrap nav-row">
+    <nav class="tabs" id="mainTabs">
+      <button data-view="home" aria-current="true">خانه</button>
+      <button data-view="l1">درس ۱ · فریره</button>
+      <button data-view="l2">درس ۲ · شبکه اجتماعی</button>
+      <button data-view="l3">درس ۳ · بازاریابی اجتماعی</button>
+    </nav>
+    <div class="brand">
+      <div>
+        <h1>تئوری‌ها و نظریه‌های تغییر رفتار ۲</h1>
+        <small>سه نظریه آموزش بزرگسالان در حوزه سلامت — ویژه دانشجویان دکتری</small>
+      </div>
+    </div>
+  </div>
+</header>
+
+<main id="app">
+
+<!-- ===================== HOME ===================== -->
+<section id="view-home" data-view="home">
+  <div class="wrap hero">
+    <span class="eyebrow">۳ درس خودآموز · هر درس معادل یک نشست ۲ ساعته</span>
+    <h2>به دوره‌ی تئوری‌ها و نظریه‌های تغییر رفتار ۲ خوش آمدید</h2>
+    <p class="lead">این دوره‌ی خودآموز، سه نظریه‌ی کلیدیِ تغییر رفتار و آموزش سلامت بزرگسالان را در قالب سه درس مستقل معرفی می‌کند؛ در هر درس یک نظریه را با داستان واقعی، سناریوی کاربردی، اینفوگرافیک و آزمون مفهومی می‌آموزید.</p>
+  </div>
+
+  <div class="wrap arches">
+    <div class="arch-card" data-goto="l1">
+      <div class="num">۱</div>
+      <h3>نظریه رهایی‌بخش فریره</h3>
+      <p>گفت‌وگو به‌جای سخنرانی؛ چگونه بزرگسالان با نام‌گذاری، تعمق و عمل، مسئله سلامت خود را حل می‌کنند.</p>
+      <span class="theorist">Paulo Freire · ۱۹۲۱–۱۹۹۷</span>
+      <button class="enter">ورود به درس ۱ ›</button>
+    </div>
+    <div class="arch-card" data-goto="l2">
+      <div class="num">۲</div>
+      <h3>نظریه شبکه اجتماعی</h3>
+      <p>سلامت از دل روابط عبور می‌کند؛ چگونه پیوندهای قوی و ضعیف، رفتار سلامت را در یک جامعه تغییر می‌دهند.</p>
+      <span class="theorist">Social Network Theory</span>
+      <button class="enter">ورود به درس ۲ ›</button>
+    </div>
+    <div class="arch-card" data-goto="l3">
+      <div class="num">۳</div>
+      <h3>بازاریابی اجتماعی</h3>
+      <p>وقتی هدف، فروش کالا نیست بلکه فروش یک رفتار سالم است؛ مبادله، رقابت و آمیخته بازاریابی در خدمت سلامت.</p>
+      <span class="theorist">Social Marketing</span>
+      <button class="enter">ورود به درس ۳ ›</button>
+    </div>
+  </div>
+
+  <div class="wrap home-note">
+    <h4>این دوره چگونه کار می‌کند؟</h4>
+    <p style="margin:0">هر درس شامل یک داستان واقعی از میدان سلامت، توضیح ساده نظریه با مثال، یک سناریوی کاربردی گام‌به‌گام، یک اینفوگرافیک، یک تمرین کاربردی برای انجام فردی یا گروهی، ده پرسش مفهومی برای خودسنجی، و فهرست منابع علمی است. جای خالی هر درس برای «ویدئوی تکمیلی» بعداً پر خواهد شد. پیشنهاد می‌شود هر درس را در یک نشست ۲ ساعته مطالعه و تمرین کنید.</p>
+  </div>
+</section>
+
+<!-- ===================== LESSON 1 : FREIRE ===================== -->
+<section id="view-l1" data-view="l1" hidden>
+  <div class="wrap lesson-hero">
+    <span class="tag">درس نخست</span>
+    <h2>نظریه رهایی‌بخش فریره در آموزش سلامت بزرگسالان</h2>
+    <div class="meta">
+      <span>⏱ یک نشست ۲ ساعته</span>
+      <span>🗣 گفت‌وگو‌محور</span>
+      <span>🎯 ۱۰ پرسش مفهومی</span>
+    </div>
+  </div>
+
+  <nav class="subnav"><div class="wrap">
+    <a href="#l1-story">داستان</a>
+    <a href="#l1-theory">اصل نظریه</a>
+    <a href="#l1-scenario">سناریوی کاربردی</a>
+    <a href="#l1-info">اینفوگرافیک</a>
+    <a href="#l1-exercise">تمرین</a>
+    <a href="#l1-video">ویدئو</a>
+    <a href="#l1-quiz">آزمون</a>
+    <a href="#l1-refs">منابع</a>
+  </div></nav>
+
+  <div class="wrap">
+
+    <section class="block" id="l1-story">
+      <h3 class="section-title"><span class="chip">📖</span> داستان: کوچه‌ای که سیر نمی‌شد</h3>
+      <div class="story-card">
+        <h4>محله‌ی «باغ‌گلی»، حاشیه‌ی یک شهر بزرگ</h4>
+        <p>دکتر مریم، کارشناس آموزش سلامت، برای سومین بار به مدرسه محله باغ‌گلی می‌رود؛ جایی که نیمی از دانش‌آموزانش اضافه‌وزن یا چاقی دارند. بار اول با خودش یک پاورپوینت پر از توصیه تغذیه‌ای برده بود: «روزی پنج وعده میوه و سبزی بخورید، از نوشابه دوری کنید». پدر و مادرها سرشان را تکان دادند، اما هیچ‌چیز تغییر نکرد.</p>
+        <p>این‌بار او تصمیم می‌گیرد به‌جای سخنرانی، فقط بپرسد: «از نگاه خودتان، مشکل اصلی سر سفره خانه چیست؟» پاسخ‌ها او را شگفت‌زده می‌کند: نزدیک‌ترین سوپرمارکت میوه‌تازه تا محله نیم‌ساعت پیاده‌روی فاصله دارد؛ پارک محله چراغ ندارد و پدر و مادرها شب‌ها اجازه نمی‌دهند بچه‌ها آنجا بازی کنند؛ و بستنی و چیپس، از میوه هم ارزان‌تر تمام می‌شود. دکتر مریم متوجه می‌شود که مشکل «ناآگاهی» خانواده‌ها نیست، بلکه شرایطی است که آن‌ها در آن گرفتار شده‌اند. این همان نقطه‌ای است که پائولو فریره، آموزش‌گر برزیلی، هفتاد سال پیش از آن شروع کرد.</p>
+      </div>
+    </section>
+
+    <section class="block" id="l1-theory">
+      <h3 class="section-title"><span class="chip">💡</span> اصل نظریه، به زبان ساده</h3>
+      <p>پائولو فریره (۱۹۲۱–۱۹۹۷) در برزیل با کشاورزان بی‌سواد کار می‌کرد. او دید روش معمول آموزش — که در آن معلم «می‌داند» و شاگرد «نمی‌داند» — در واقع شاگرد را منفعل نگه می‌دارد. او این روش را <b>آموزش بانکی</b> نامید: گویی معلم اطلاعات را مثل پول در حساب خالی ذهن شاگرد «واریز» می‌کند. به‌جای آن، فریره <b>آموزش مسئله‌محور</b> را پیشنهاد داد: معلم و یادگیرنده با هم، درباره‌ی مسئله‌ای واقعی از زندگی یادگیرنده، گفت‌وگو می‌کنند و هر دو یاد می‌گیرند.</p>
+      <p>این رویکرد در آموزش سلامت بزرگسالان بسیار به‌کار رفته است، چون هدفش دقیقاً همان چیزی است که آموزش سلامت دنبال می‌کند: نه فقط انتقال اطلاعات، بلکه توانمندسازی افراد برای تغییر واقعی شرایط زندگی‌شان (Wallerstein &amp; Bernstein, 1988).</p>
+
+      <div class="concept-grid">
+        <div class="concept"><span class="k">گفت‌وگو (Dialogue)</span><p>گفت‌وگوی دوطرفه و برابر بین آموزش‌دهنده و مخاطب؛ نه سخنرانی از بالا به پایین. سؤال با «چرا این‌طور است؟» شروع می‌شود، نه با «باید این‌طور باشد».</p></div>
+        <div class="concept"><span class="k">آگاهی‌بخشی انتقادی (Conscientização)</span><p>کمک به افراد برای دیدن ریشه‌های اجتماعی و اقتصادیِ مشکل خودشان، نه فقط نشانه‌های آن؛ مثلاً دیدن «کمبود دسترسی به میوه ارزان» به‌جای «بی‌مسئولیتی والدین».</p></div>
+        <div class="concept"><span class="k">پراکسیس (Praxis)</span><p>پیوند تعمق با عمل: دانش تازه بلافاصله به یک اقدام واقعی و کوچک تبدیل می‌شود، و نتیجه‌ی آن اقدام دوباره تعمق را عمیق‌تر می‌کند.</p></div>
+        <div class="concept"><span class="k">تحول (Transformation)</span><p>روشن‌شدن بُعد سیاسی-ساختاری مسئله؛ مثلاً فهمیدن این‌که برچسب تغذیه‌ای مواد غذایی چگونه می‌تواند مصرف‌کننده را گمراه کند.</p></div>
+        <div class="concept"><span class="k">آگاهی سیاسی (Critical Consciousness)</span><p>سازمان‌یافتن جمعی برای اثرگذاری بر نیروهایی که وضعیت را حفظ می‌کنند، مانند تراکم فست‌فودها در محله‌های کم‌درآمد.</p></div>
+      </div>
+      <p>این پنج سازه در قالب یک <b>چرخه سه‌مرحله‌ای</b> عملی می‌شوند: <b>نام‌گذاری</b> (مسئله از زبان خودِ مردم چیست؟)، <b>تعمق</b> (چرا این مسئله وجود دارد؟) و <b>عمل</b> (با توجه به امکانات‌مان چه کاری از دست‌مان برمی‌آید؟). این چرخه یک‌بار مصرف نیست؛ نتیجه‌ی «عمل» دوباره به «نام‌گذاری» مسئله‌ی بعدی می‌رسد.</p>
+    </section>
+
+    <section class="block" id="l1-scenario">
+      <h3 class="section-title"><span class="chip">🧭</span> سناریوی کاربردی: باغ‌گلی، سه مرحله بعد</h3>
+      <p>ببینیم دکتر مریم چگونه چرخه‌ی فریره را با خانواده‌های محله باغ‌گلی برای موضوع «چاقی کودکان» پیش می‌برد (بر پایه‌ی الگویی که شرما و روماس، ۲۰۰۸، برای سلامت جامعه شرح داده‌اند):</p>
+      <ol class="scenario-steps">
+        <li>
+          <div class="idx">۱</div>
+          <div><b>نام‌گذاری — نشست دایره‌ی فرهنگی با ۱۵ خانواده</b>
+          <p>به‌جای ارائه، دکتر مریم یک «دایره‌ی گفت‌وگو» تشکیل می‌دهد و می‌پرسد: «بزرگ‌ترین مانع سر راه غذای سالم و بازی بچه‌ها در این محله چیست؟» خانواده‌ها خودشان مسئله را نام می‌برند: نبود میوه‌فروشی نزدیک، ناامنی پارک شبانه، و قیمت پایین‌تر تنقلات.</p></div>
+        </li>
+        <li>
+          <div class="idx">۲</div>
+          <div><b>تعمق — چرا این‌طور شده است؟</b>
+          <p>گروه با هم بحث می‌کند: چرا سوپرمارکت میوه در این محله نیست؟ (سود کم برای فروشنده)؛ چرا پارک روشن نیست؟ (بودجه شهرداری)؛ چرا تنقلات ارزان‌تر است؟ (یارانه و تبلیغات صنایع غذایی). اینجا مسئله از «تقصیر خانواده» به «شرایط ساختاری» تغییر چارچوب می‌دهد — همان <i>آگاهی‌بخشی انتقادی</i>.</p></div>
+        </li>
+        <li>
+          <div class="idx">۳</div>
+          <div><b>عمل — چه کاری از دست‌مان برمی‌آید؟</b>
+          <p>گروه با کمک هم، سه اقدام کوچک اما واقعی طراحی می‌کند: (الف) گروه هم‌پیمایی والدین برای بردن نوبتی بچه‌ها به تنها پارک روشنِ نزدیک؛ (ب) کارگاه آشپزی کم‌هزینه با محصولات فصلی که در بازار محلی ارزان‌تر است؛ (پ) نامه‌ی جمعی به شورای شهر برای روشنایی پارک. هرکدام از این‌ها <i>پراکسیس</i> است: دانش به عمل مشخص تبدیل می‌شود.</p></div>
+        </li>
+      </ol>
+      <p style="margin-top:16px">نکته‌ی کلیدی برای شما به‌عنوان پژوهشگر یا مدرس آینده: نقش آموزش‌دهنده در این مدل، «کارشناسی که راه‌حل می‌دهد» نیست؛ بلکه «تسهیل‌گر گفت‌وگو» است. محدودیت مهم این نظریه هم همین‌جاست: اگر تسهیل‌گر به‌جای مردم تصمیم بگیرد، به‌جای رهایی‌بخشی، دوباره همان رابطه‌ی نابرابر تکرار می‌شود (Sharma &amp; Romas, 2008).</p>
+    </section>
+
+    <section class="block" id="l1-info">
+      <h3 class="section-title"><span class="chip">🖼</span> اینفوگرافیک: چرخه‌ی فریره</h3>
+      <figure class="infographic">
+        <svg viewBox="0 0 720 380" role="img" aria-label="چرخه سه مرحله‌ای فریره شامل نام‌گذاری، تعمق و عمل که با پیکان‌های خمیده به هم متصل‌اند و به‌طور پیوسته تکرار می‌شوند؛ در مرکز پنج سازه گفت‌وگو، آگاهی‌بخشی انتقادی، پراکسیس، تحول و آگاهی سیاسی قرار دارند." style="width:100%;height:auto;color:var(--ivory);font-family:'Vazirmatn',sans-serif">
+          <defs>
+            <marker id="ar1" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+              <path d="M0,0 L10,5 L0,10 z" fill="var(--gold-2)"></path>
+            </marker>
+          </defs>
+          <circle cx="360" cy="180" r="150" fill="none" stroke="var(--line)" stroke-width="1.5"></circle>
+
+          <!-- three phase nodes -->
+          <g>
+            <rect x="290" y="10" width="140" height="60" rx="16" fill="var(--navy-3)" stroke="var(--gold)" stroke-width="1.5"></rect>
+            <text x="360" y="45" text-anchor="middle" font-size="17" fill="var(--gold-2)" font-weight="700">نام‌گذاری</text>
+          </g>
+          <g>
+            <rect x="500" y="255" width="150" height="60" rx="16" fill="var(--navy-3)" stroke="var(--turquoise)" stroke-width="1.5"></rect>
+            <text x="575" y="290" text-anchor="middle" font-size="17" fill="var(--turquoise-2)" font-weight="700">تعمق</text>
+          </g>
+          <g>
+            <rect x="70" y="255" width="150" height="60" rx="16" fill="var(--navy-3)" stroke="var(--crimson)" stroke-width="1.5"></rect>
+            <text x="145" y="290" text-anchor="middle" font-size="17" fill="#e79aa4" font-weight="700">عمل</text>
+          </g>
+
+          <!-- curved arrows between phases (cycle) -->
+          <path d="M 420 55 Q 560 100 520 255" fill="none" stroke="var(--gold-2)" stroke-width="2.2" marker-end="url(#ar1)"></path>
+          <path d="M 500 300 Q 360 380 220 300" fill="none" stroke="var(--gold-2)" stroke-width="2.2" marker-end="url(#ar1)"></path>
+          <path d="M 150 255 Q 130 100 295 50" fill="none" stroke="var(--gold-2)" stroke-width="2.2" marker-end="url(#ar1)"></path>
+
+          <!-- center label -->
+          <text x="360" y="150" text-anchor="middle" font-size="13" fill="var(--plaster)">از طریق گفت‌وگو</text>
+          <text x="360" y="172" text-anchor="middle" font-size="13" fill="var(--plaster)">و پراکسیس</text>
+          <text x="360" y="194" text-anchor="middle" font-size="12" fill="var(--plaster)" opacity=".8">تحول + آگاهی سیاسی</text>
+
+          <text x="360" y="360" text-anchor="middle" font-size="12.5" fill="var(--plaster)" opacity=".85">چرخه پیوسته تکرار می‌شود؛ عمل هر دور، نام‌گذاریِ مسئله‌ی بعدی را می‌سازد</text>
+        </svg>
+        <figcaption>چرخه‌ی سه‌مرحله‌ای فریره یک خط مستقیم نیست، بلکه یک حلقه‌ی پیوسته از گفت‌وگوست: هر «عمل» زمینه‌ساز «نام‌گذاریِ» مسئله‌ی تازه می‌شود.</figcaption>
+      </figure>
+    </section>
+
+    <section class="block" id="l1-exercise">
+      <h3 class="section-title"><span class="chip">✍️</span> تمرین کاربردی</h3>
+      <div class="exercise-card">
+        <h4>طراحی یک «دایره‌ی فرهنگی» برای یک نشست سلامت</h4>
+        <ol>
+          <li>یک موضوع سلامت را که در محیط کاری یا پژوهشی خودتان با آن مواجه‌اید انتخاب کنید (مثلاً دیابت، سلامت روان کارکنان، سلامت باروری).</li>
+          <li>یک پرسشِ «نام‌گذاری» بنویسید که مخاطبان را به گفت‌وگو دعوت کند، نه یک پرسش بله/خیر.</li>
+          <li>دو پرسشِ «تعمق» بنویسید که به ریشه‌های اجتماعی-اقتصادی مسئله بپردازد، نه به رفتار فردی.</li>
+          <li>سه اقدامِ «عمل» کوچک و در دسترس پیشنهاد دهید که خودِ گروه هدف بتواند بدون کمک بیرونی زیاد انجام دهد.</li>
+          <li>یک بند کوتاه بنویسید: در نقش تسهیل‌گر، چه کاری <b>نباید</b> انجام دهید تا رابطه به آموزش بانکی برنگردد؟</li>
+        </ol>
+      </div>
+    </section>
+
+    <section class="block" id="l1-video">
+      <h3 class="section-title"><span class="chip">🎬</span> ویدئوی تکمیلی</h3>
+      <div class="video-slot"><div class="icon">🎥</div>ویدئوی این درس به‌زودی اینجا اضافه می‌شود.</div>
+    </section>
+
+    <section class="block" id="l1-quiz">
+      <h3 class="section-title"><span class="chip">✅</span> آزمون مفهومی (۱۰ پرسش)</h3>
+      <div class="quiz-progress"><span id="l1-progress-label">۰ از ۱۰</span><div class="bar"><i id="l1-bar"></i></div></div>
+      <div id="l1-quiz-body"></div>
+      <div id="l1-result" hidden></div>
+    </section>
+
+    <section class="block" id="l1-refs">
+      <h3 class="section-title"><span class="chip">📚</span> منابع</h3>
+      <ul class="refs">
+        <li>Freire, P. (1970). <i>Pedagogy of the Oppressed.</i> New York: Continuum.</li>
+        <li>Wallerstein, N., &amp; Bernstein, E. (1988). Empowerment education: Freire's ideas adapted to health education. <i>Health Education Quarterly, 15</i>(4), 379–394.</li>
+        <li>Sharma, M., &amp; Romas, J. A. (2008). <i>Theoretical Foundations of Health Education and Health Promotion.</i> Sudbury, MA: Jones and Bartlett.</li>
+      </ul>
+    </section>
+
+  </div>
+</section>
+
+<!-- ===================== LESSON 2 : SOCIAL NETWORK THEORY ===================== -->
+<section id="view-l2" data-view="l2" hidden>
+  <div class="wrap lesson-hero">
+    <span class="tag">درس دوم</span>
+    <h2>نظریه شبکه اجتماعی در سلامت</h2>
+    <div class="meta">
+      <span>⏱ یک نشست ۲ ساعته</span>
+      <span>🕸 روابط‌محور</span>
+      <span>🎯 ۱۰ پرسش مفهومی</span>
+    </div>
+  </div>
+
+  <nav class="subnav"><div class="wrap">
+    <a href="#l2-story">داستان</a>
+    <a href="#l2-theory">اصل نظریه</a>
+    <a href="#l2-scenario">سناریوی کاربردی</a>
+    <a href="#l2-info">اینفوگرافیک</a>
+    <a href="#l2-exercise">تمرین</a>
+    <a href="#l2-video">ویدئو</a>
+    <a href="#l2-quiz">آزمون</a>
+    <a href="#l2-refs">منابع</a>
+  </div></nav>
+
+  <div class="wrap">
+
+    <section class="block" id="l2-story">
+      <h3 class="section-title"><span class="chip">📖</span> داستان: پیامی که از دکه‌ی حاج‌آقا شروع شد</h3>
+      <div class="story-card">
+        <h4>بازار محله، یک صبح پاییزی</h4>
+        <p>مرکز بهداشت محله می‌خواهد میان‌سالان بالای ۴۰ سال را برای غربالگری رایگان دیابت دعوت کند. تیم سلامت یک بار پوستر زد؛ کسی نیامد. بار دوم پیامک فرستاد؛ باز هم استقبال کم بود. کارشناس سلامت به‌جای تکرار همان روش، از خودش می‌پرسد: «مردم این محله حرف چه کسی را بیشتر باور دارند؟» پاسخ روشن است: حاج‌آقا، صاحب دکه‌ی ادویه و خشکبار که سی سال است هر روز صبح با همه گپ می‌زند و هرکسی یک‌بار پایش به دکه‌ی او باز شده.</p>
+        <p>کارشناس سلامت با حاج‌آقا می‌نشیند، دیابت و علائم آن را برایش ساده توضیح می‌دهد و از او می‌خواهد در گفت‌وگوهای روزمره‌اش، آزمایش رایگان را به مشتری‌ها یادآوری کند — نه با پوستر، با یک جمله‌ی صمیمی. دو هفته بعد، صف غربالگری از در مرکز بهداشت بیرون زده است. هیچ‌کس پیام تبلیغاتی جدیدی ندیده؛ فقط پیام از مسیر درستی عبور کرده است: از دل یک <b>شبکه‌ی اجتماعی</b> واقعی.</p>
+      </div>
+    </section>
+
+    <section class="block" id="l2-theory">
+      <h3 class="section-title"><span class="chip">💡</span> اصل نظریه، به زبان ساده</h3>
+      <p>نظریه‌ی شبکه‌ی اجتماعی می‌گوید سلامت هر فرد، تنها نتیجه‌ی دانش یا اراده‌ی شخصی او نیست؛ بلکه از میان <b>روابطی</b> که او را احاطه کرده عبور می‌کند — خانواده، همسایه، همکار، دوستان مجازی. این نظریه به‌جای تمرکز بر فرد، به «نقشه‌ی روابط» نگاه می‌کند (Berkman &amp; Glass, 2000).</p>
+
+      <div class="concept-grid">
+        <div class="concept"><span class="k">اندازه و تراکم شبکه</span><p>اندازه یعنی تعداد افرادی که فرد با آن‌ها در ارتباط است؛ تراکم یعنی چه‌قدر این افراد خودشان هم با هم در ارتباط‌اند. شبکه‌ی متراکم، اطلاعات را سریع اما محدود به همان جمع پخش می‌کند.</p></div>
+        <div class="concept"><span class="k">مرکزیت (Centrality)</span><p>برخی افراد — مثل حاج‌آقا در داستان بالا — در مرکز شبکه قرار دارند و بیشترین ارتباط را با گره‌های دیگر دارند. رسیدن پیام به این افراد، سریع‌ترین راه پخش آن در کل شبکه است.</p></div>
+        <div class="concept"><span class="k">تجانس / همگنی (Homophily)</span><p>آدم‌ها بیشتر با افراد شبیه به خودشان (هم‌سن، هم‌محله، هم‌شغل) ارتباط نزدیک دارند. این یعنی یک پیام به‌راحتی درون یک گروه می‌چرخد، اما به‌سختی از آن گروه بیرون می‌رود.</p></div>
+        <div class="concept"><span class="k">پیوندهای ضعیف (Weak Ties)</span><p>گرانووتر (۱۹۷۳) نشان داد پیوندهای «ضعیف» — آشنایان دور، نه دوستان صمیمی — پُلی هستند که اطلاعات تازه را از یک گروه بسته به گروه دیگر می‌رسانند؛ دوستان صمیمی معمولاً همان اطلاعاتی را دارند که خودِ فرد دارد.</p></div>
+        <div class="concept"><span class="k">انواع حمایت اجتماعی</span><p>عاطفی (همدلی)، ابزاری (کمک عملی مثل رساندن به درمانگاه)، اطلاعاتی (راهنمایی) و ارزیابی (بازخورد برای تصمیم‌گیری) — هرکدام نقش متفاوتی در پایبندی به رفتار سالم دارند.</p></div>
+        <div class="concept"><span class="k">سرمایه‌ی اجتماعی</span><p>پیونددهنده (bonding: درون گروه خودی)، پل‌زننده (bridging: میان گروه‌های متفاوت) و اتصال‌دهنده (linking: میان مردم و نهادها/نظام سلامت) — سه لایه‌ای که منابع سلامت را در دسترس افراد قرار می‌دهند.</p></div>
+      </div>
+      <p>نتیجه‌ی عملی برای شما: مداخله‌ی سلامت مؤثر، اغلب به‌جای خطاب‌قراردادن «همه»، نخست <b>نقشه‌ی شبکه</b> را می‌کشد، افراد محوری و پیونددهنده را می‌یابد و از طریق آن‌ها وارد شبکه می‌شود.</p>
+    </section>
+
+    <section class="block" id="l2-scenario">
+      <h3 class="section-title"><span class="chip">🧭</span> سناریوی کاربردی: الگوی «رهبر فکری محبوب» (Popular Opinion Leader)</h3>
+      <p>یکی از قوی‌ترین شواهد علمی در این حوزه، کارآزمایی کلی و همکاران (Kelly et al., 1997) است که در چند شهر آمریکا برای کاهش رفتار پرخطر جنسی و پیشگیری از اچ‌آی‌وی اجرا شد. الگوی آن را گام‌به‌گام با تطبیق بر مثال غربالگری دیابتِ محله‌ی بالا می‌بینیم:</p>
+      <ol class="scenario-steps">
+        <li><div class="idx">۱</div><div><b>نقشه‌برداری شبکه</b>
+        <p>پژوهشگران به‌جای دعوت تصادفی، از اعضای جامعه پرسیدند: «حرف چه کسانی در این محیط بیشتر شنیده می‌شود؟» این افراد به‌صورت جامعه‌سنجانه (sociometric) شناسایی شدند — دقیقاً همان کاری که کارشناس سلامت با یافتن حاج‌آقا انجام داد.</p></div></li>
+        <li><div class="idx">۲</div><div><b>آموزش رهبران فکری، نه عموم مردم</b>
+        <p>به‌جای برگزاری کارگاه برای همه‌ی محله، فقط همان چند نفر محوری آموزش دیدند: پیام‌های کوتاه، ساده و قابل‌گفتن در گفت‌وگوی روزمره — نه بروشور رسمی.</p></div></li>
+        <li><div class="idx">۳</div><div><b>انتشار از طریق پیوندهای قوی درون‌گروهی</b>
+        <p>رهبران فکری در گفت‌وگوهای طبیعی روزانه با نزدیکان و مشتریان خود (تجانس/همگنی) پیام را به‌شکلی طبیعی نقل کردند؛ همان‌طور که حاج‌آقا هنگام وزن‌کردن ادویه، آزمایش رایگان را یادآوری می‌کرد.</p></div></li>
+        <li><div class="idx">۴</div><div><b>عبور از مرز گروه با پیوندهای ضعیف</b>
+        <p>هرکس که پیام را شنید، آن را به آشنایانِ دورتر خودش هم منتقل کرد — دقیقاً همان «پل» گرانووتر — و پیام از یک محفل کوچک به کل محله و حتی محله‌های مجاور رسید.</p></div></li>
+        <li><div class="idx">۵</div><div><b>ارزیابی در سطح جامعه، نه فقط فرد</b>
+        <p>در مطالعه‌ی اصلی، رفتار پرخطر در سطح کل جامعه (نه فقط افرادی که مستقیماً آموزش دیده بودند) کاهش یافت — نشانه‌ی روشنی که مداخله از طریق شبکه، فراتر از مخاطبان مستقیم اثر می‌گذارد.</p></div></li>
+      </ol>
+    </section>
+
+    <section class="block" id="l2-info">
+      <h3 class="section-title"><span class="chip">🖼</span> اینفوگرافیک: نقشه‌ی یک شبکه‌ی اجتماعی سلامت</h3>
+      <figure class="infographic">
+        <svg viewBox="0 0 720 380" role="img" aria-label="نقشه‌ای از یک شبکه اجتماعی با یک گره محوری بزرگ به‌عنوان رهبر فکری که با پیوندهای قوی به یک خوشه متصل است و با یک پیوند ضعیف نقطه‌چین به خوشه‌ی دوم و نظام سلامت پل می‌زند." style="width:100%;height:auto;color:var(--ivory);font-family:'Vazirmatn',sans-serif">
+          <!-- cluster A (bonding) -->
+          <g stroke="var(--turquoise-2)" stroke-width="2">
+            <line x1="180" y1="150" x2="90" y2="90"></line>
+            <line x1="180" y1="150" x2="80" y2="170"></line>
+            <line x1="180" y1="150" x2="110" y2="235"></line>
+            <line x1="180" y1="150" x2="205" y2="245"></line>
+          </g>
+          <circle cx="90" cy="90" r="15" fill="var(--navy-3)" stroke="var(--turquoise-2)" stroke-width="2"></circle>
+          <circle cx="80" cy="170" r="15" fill="var(--navy-3)" stroke="var(--turquoise-2)" stroke-width="2"></circle>
+          <circle cx="110" cy="235" r="15" fill="var(--navy-3)" stroke="var(--turquoise-2)" stroke-width="2"></circle>
+          <circle cx="205" cy="245" r="15" fill="var(--navy-3)" stroke="var(--turquoise-2)" stroke-width="2"></circle>
+          <text x="140" y="292" text-anchor="middle" font-size="12.5" fill="var(--turquoise-2)">خوشه‌ی محله (پیوند قوی / bonding)</text>
+
+          <!-- central opinion leader node -->
+          <circle cx="180" cy="150" r="26" fill="radial-gradient(circle, var(--gold-2), var(--gold))" style="fill:var(--gold)"></circle>
+          <text x="180" y="155" text-anchor="middle" font-size="12" fill="var(--ink)" font-weight="700">رهبر فکری</text>
+
+          <!-- weak tie bridge (dashed) -->
+          <line x1="204" y1="140" x2="420" y2="110" stroke="var(--gold-2)" stroke-width="2.4" stroke-dasharray="6 6"></line>
+          <text x="310" y="105" text-anchor="middle" font-size="12" fill="var(--gold-2)">پیوند ضعیف (پُل)</text>
+
+          <!-- cluster B -->
+          <g stroke="var(--crimson-2)" stroke-width="2">
+            <line x1="470" y1="130" x2="560" y2="80"></line>
+            <line x1="470" y1="130" x2="590" y2="150"></line>
+            <line x1="470" y1="130" x2="540" y2="205"></line>
+          </g>
+          <circle cx="470" cy="130" r="18" fill="var(--navy-3)" stroke="var(--crimson-2)" stroke-width="2"></circle>
+          <circle cx="560" cy="80" r="14" fill="var(--navy-3)" stroke="var(--crimson-2)" stroke-width="2"></circle>
+          <circle cx="590" cy="150" r="14" fill="var(--navy-3)" stroke="var(--crimson-2)" stroke-width="2"></circle>
+          <circle cx="540" cy="205" r="14" fill="var(--navy-3)" stroke="var(--crimson-2)" stroke-width="2"></circle>
+          <text x="540" y="240" text-anchor="middle" font-size="12.5" fill="#e79aa4">محله‌ی همسایه</text>
+
+          <!-- linking capital to health system -->
+          <line x1="470" y1="148" x2="470" y2="300" stroke="var(--plaster)" stroke-width="2" stroke-dasharray="2 5"></line>
+          <rect x="400" y="300" width="140" height="46" rx="10" fill="var(--navy-2)" stroke="var(--plaster)" stroke-width="1.3"></rect>
+          <text x="470" y="328" text-anchor="middle" font-size="12.5" fill="var(--ivory)">مرکز بهداشت (linking)</text>
+        </svg>
+        <figcaption>پیام سلامت از گره‌ی محوری (رهبر فکری) با پیوندهای قوی درون خوشه‌ی خودش پخش، سپس با یک پیوند ضعیف به خوشه‌ی دیگر پل می‌زند و از طریق سرمایه‌ی اتصال‌دهنده به نظام سلامت می‌رسد.</figcaption>
+      </figure>
+    </section>
+
+    <section class="block" id="l2-exercise">
+      <h3 class="section-title"><span class="chip">✍️</span> تمرین کاربردی</h3>
+      <div class="exercise-card">
+        <h4>نقشه‌ی شبکه‌ی خودتان را بکشید</h4>
+        <ol>
+          <li>یک جمعیت هدف برای یک مداخله‌ی سلامت در نظر بگیرید (مثلاً کارکنان یک سازمان، دانشجویان یک دانشکده، ساکنان یک محله).</li>
+          <li>سه نفری که به نظرتان «مرکزیت» بالایی در آن جمعیت دارند نام ببرید و دلیل انتخاب‌تان را بنویسید.</li>
+          <li>یک نمونه از «پیوند ضعیف» را که می‌تواند پیام شما را به گروهی خارج از حلقه‌ی اصلی برساند شناسایی کنید.</li>
+          <li>مشخص کنید مداخله‌ی شما بیشتر به کدام نوع حمایت نیاز دارد: عاطفی، ابزاری، اطلاعاتی یا ارزیابی؛ و چرا.</li>
+          <li>یک جمله بنویسید که آن فرد محوری بتواند در یک گفت‌وگوی طبیعی (نه سخنرانی رسمی) بگوید.</li>
+        </ol>
+      </div>
+    </section>
+
+    <section class="block" id="l2-video">
+      <h3 class="section-title"><span class="chip">🎬</span> ویدئوی تکمیلی</h3>
+      <div class="video-slot"><div class="icon">🎥</div>ویدئوی این درس به‌زودی اینجا اضافه می‌شود.</div>
+    </section>
+
+    <section class="block" id="l2-quiz">
+      <h3 class="section-title"><span class="chip">✅</span> آزمون مفهومی (۱۰ پرسش)</h3>
+      <div class="quiz-progress"><span id="l2-progress-label">۰ از ۱۰</span><div class="bar"><i id="l2-bar"></i></div></div>
+      <div id="l2-quiz-body"></div>
+      <div id="l2-result" hidden></div>
+    </section>
+
+    <section class="block" id="l2-refs">
+      <h3 class="section-title"><span class="chip">📚</span> منابع</h3>
+      <ul class="refs">
+        <li>Berkman, L. F., &amp; Glass, T. (2000). Social integration, social networks, social support, and health. In L. F. Berkman &amp; I. Kawachi (Eds.), <i>Social Epidemiology</i> (pp. 137–173). Oxford University Press.</li>
+        <li>Granovetter, M. S. (1973). The strength of weak ties. <i>American Journal of Sociology, 78</i>(6), 1360–1380.</li>
+        <li>Kelly, J. A., et al. (1997). Randomised, controlled, community-level HIV-prevention intervention for sexual-risk behaviour among homosexual men in US cities. <i>The Lancet, 350</i>(9090), 1500–1505.</li>
+        <li>Valente, T. W. (2010). <i>Social Networks and Health: Models, Methods, and Applications.</i> Oxford University Press.</li>
+        <li>Sharma, M., &amp; Romas, J. A. (2008). <i>Theoretical Foundations of Health Education and Health Promotion.</i> Sudbury, MA: Jones and Bartlett.</li>
+      </ul>
+    </section>
+
+  </div>
+</section>
+
+<!-- ===================== LESSON 3 : SOCIAL MARKETING ===================== -->
+<section id="view-l3" data-view="l3" hidden>
+  <div class="wrap lesson-hero">
+    <span class="tag">درس سوم</span>
+    <h2>بازاریابی اجتماعی در سلامت</h2>
+    <div class="meta">
+      <span>⏱ یک نشست ۲ ساعته</span>
+      <span>🛍 مبادله‌محور</span>
+      <span>🎯 ۱۰ پرسش مفهومی</span>
+    </div>
+  </div>
+
+  <nav class="subnav"><div class="wrap">
+    <a href="#l3-story">داستان</a>
+    <a href="#l3-theory">اصل نظریه</a>
+    <a href="#l3-scenario">سناریوی کاربردی</a>
+    <a href="#l3-info">اینفوگرافیک</a>
+    <a href="#l3-exercise">تمرین</a>
+    <a href="#l3-video">ویدئو</a>
+    <a href="#l3-quiz">آزمون</a>
+    <a href="#l3-refs">منابع</a>
+  </div></nav>
+
+  <div class="wrap">
+
+    <section class="block" id="l3-story">
+      <h3 class="section-title"><span class="chip">📖</span> داستان: پوستری که هیچ‌کس نخواند</h3>
+      <div class="story-card">
+        <h4>خانه‌ی بهداشت یک شهرک، بهار</h4>
+        <p>کارشناس سلامت شهرک تصمیم می‌گیرد فعالیت بدنی زنان میان‌سال را که اغلب کم‌تحرک‌اند افزایش دهد. او پوستری زیبا طراحی می‌کند: «۳۰ دقیقه پیاده‌روی روزانه، قلب‌تان را سالم نگه می‌دارد» و آن را در درمانگاه نصب می‌کند. یک ماه می‌گذرد؛ آمار پیاده‌روی تغییری نکرده است.</p>
+        <p>او این‌بار به‌جای طراحی پیام تازه، مثل یک بازاریاب فکر می‌کند: «چرا کسی باید این رفتار را از من "بخرد"؟» با چند نفر از زنان محله گپ می‌زند. متوجه می‌شود مشکل «ندانستن فایده‌ی پیاده‌روی» نیست؛ مشکل این است که عصرها وقت آزاد کم است، پارک عمومی برایشان راحت نیست چون مردان هم آنجا هستند، و پیاده‌روی تنها، کسل‌کننده به نظر می‌رسد. یعنی «قیمت» این رفتار — از نظر وقت، آسایش و لذت اجتماعی — بالاتر از «سودی» است که فعلاً حس می‌کنند. این دقیقاً همان نقطه‌ای است که <b>بازاریابی اجتماعی</b> از آن شروع می‌کند.</p>
+      </div>
+    </section>
+
+    <section class="block" id="l3-theory">
+      <h3 class="section-title"><span class="chip">💡</span> اصل نظریه، به زبان ساده</h3>
+      <p>کاتلر و زالتمن (Kotler &amp; Zaltman, 1971) اولین‌بار پیشنهاد دادند از همان ابزارهایی که شرکت‌ها برای فروش محصول استفاده می‌کنند، برای «فروش یک رفتار سالم» هم استفاده شود — با این تفاوت که سود، برای فرد و جامعه است، نه برای یک شرکت. ایده‌ی مرکزی این نظریه <b>مبادله (Exchange)</b> است: هیچ‌کس رفتارش را عوض نمی‌کند مگر آنچه در ازای آن به‌دست می‌آورد، از آنچه می‌دهد (زمان، پول، انرژی، آبرو) ارزشمندتر باشد.</p>
+
+      <div class="concept-grid">
+        <div class="concept"><span class="k">محصول (Product)</span><p>خودِ رفتار سالم یا سود ملموسی که مخاطب در ازای آن دریافت می‌کند — نه لزوماً یک شیء، بلکه گاهی یک احساس یا سبک زندگی («پرانرژی‌بودن»، «سالم‌ماندن برای نوه‌ها»).</p></div>
+        <div class="concept"><span class="k">قیمت (Price)</span><p>هزینه‌ی واقعی رفتار از نگاه مخاطب: زمان، پول، تلاش بدنی، ناراحتی اجتماعی. کار بازاریاب اجتماعی، پایین‌آوردن این قیمت است، نه فقط بالابردن فایده.</p></div>
+        <div class="concept"><span class="k">مکان (Place)</span><p>کجا و چه زمانی رفتار باید در دسترس و راحت باشد؛ مثلاً فضایی زنانه و امن، در ساعتی که واقعاً برای مخاطب ممکن است.</p></div>
+        <div class="concept"><span class="k">ترویج (Promotion)</span><p>چگونگی رساندن پیام — که به‌ترین حالت، از طریق همان شبکه‌های اجتماعی و افراد محوری (درس ۲) انجام می‌شود، نه فقط پوستر.</p></div>
+        <div class="concept"><span class="k">رقابت (Competition)</span><p>هر رفتار دیگری که با رفتار هدف رقابت می‌کند: استراحت‌کردن، تماشای سریال، یا حتی هنجار اجتماعی «زن‌ها بیرون ورزش نمی‌کنند». نادیده‌گرفتن رقیب، یعنی شکست برنامه.</p></div>
+        <div class="concept"><span class="k">بخش‌بندی مخاطب (Segmentation)</span><p>«زنان میان‌سال» یک گروه یکدست نیست؛ مادران شاغل با زنان بازنشسته دغدغه‌ها و زمان متفاوتی دارند و باید پیام و برنامه‌ی جدا داشته باشند.</p></div>
+      </div>
+
+      <p>اَندریاسن (Andreasen, 2002) و مرکز ملی بازاریابی اجتماعی بریتانیا (NSMC) این اصول را در قالب <b>معیارهای محک بازاریابی اجتماعی</b> خلاصه کرده‌اند: تمرکز بر <b>رفتار</b> قابل‌سنجش (نه فقط آگاهی)، <b>شناخت مخاطب</b> از طریق پژوهش میدانی، استفاده از <b>نظریه</b>، رسیدن به <b>بینش</b> واقعی درباره‌ی انگیزه‌ها، طراحی <b>مبادله</b>، شناسایی <b>رقیب</b>، <b>بخش‌بندی</b> مخاطب، و به‌کارگیری <b>آمیخته‌ای از روش‌ها</b> (نه فقط تبلیغ).</p>
+    </section>
+
+    <section class="block" id="l3-scenario">
+      <h3 class="section-title"><span class="chip">🧭</span> سناریوی کاربردی: کمپین «صبح‌های پیاده» برای زنان میان‌سال</h3>
+      <p>کارشناس سلامت شهرک، برنامه‌اش را بر پایه‌ی معیارهای بازاریابی اجتماعی از نو طراحی می‌کند:</p>
+      <ol class="scenario-steps">
+        <li><div class="idx">۱</div><div><b>پژوهش مخاطب و بینش</b>
+        <p>به‌جای حدس‌زدن، با ۲۰ زن مصاحبه می‌کند. بینش کلیدی: آن‌ها به تنهایی رغبتی به پیاده‌روی ندارند، اما «وقت‌گذرانی با هم» را دوست دارند.</p></div></li>
+        <li><div class="idx">۲</div><div><b>بخش‌بندی</b>
+        <p>دو گروه شناسایی می‌شوند: مادران شاغل (وقت محدود صبح زود) و زنان بازنشسته (وقت آزاد عصر). برای هرکدام برنامه‌ی جدا طراحی می‌شود.</p></div></li>
+        <li><div class="idx">۳</div><div><b>شناسایی رقیب و طراحی مبادله</b>
+        <p>رقیب اصلی گروه بازنشسته «تنهایی و کسالت عصرگاهی» است، نه تنبلی. مبادله‌ی پیشنهادی: پیاده‌روی گروهی به‌جای پیاده‌روی تنها، در ازای صرف نیم‌ساعت وقت — یعنی محصول واقعی، «رفاقت» است، نه فقط سلامت قلب.</p></div></li>
+        <li><div class="idx">۴</div><div><b>آمیخته‌ی بازاریابی (۴P)</b>
+        <p>محصول: گروه پیاده‌روی «صبح‌های پیاده» با یک مربی داوطلب؛ قیمت: رایگان و بدون نیاز به تجهیزات خاص؛ مکان: حیاط بزرگ مسجد محله در ساعتی که برای هر دو گروه مناسب است؛ ترویج: نه با پوستر، بلکه از طریق همان رهبران فکری محله (پیوند به درس ۲) که در گفت‌وگوی روزمره افراد را دعوت می‌کنند.</p></div></li>
+        <li><div class="idx">۵</div><div><b>مشارکت و سیاست‌گذاری، و ارزیابی</b>
+        <p>شهرداری برای روشنایی و ایمنی مسیر همکاری می‌کند (partnership/policy). سه ماه بعد، تعداد پیاده‌روی‌کنندگان ثبت‌شده سه‌برابر می‌شود — دقیقاً همان الگویی که کمپین‌های ملی بزرگ، مانند کمپین «truth» علیه سیگارکشیدن نوجوانان در آمریکا، با ترکیب مشابهی از پژوهش مخاطب، شناسایی رقیب (هنجار «باحال‌بودنِ» سیگار) و پیام‌رسانی هم‌ذات با مخاطب، توانستند نرخ سیگارکشیدن نوجوانان را به‌شکل معنادار کاهش دهند (Farrelly et al., 2002).</p></div></li>
+      </ol>
+    </section>
+
+    <section class="block" id="l3-info">
+      <h3 class="section-title"><span class="chip">🖼</span> اینفوگرافیک: بازارچه‌ی مبادله سلامت</h3>
+      <figure class="infographic">
+        <svg viewBox="0 0 720 420" role="img" aria-label="نموداری ستاره‌ای که در مرکز آن مبادله میان مخاطب و برنامه قرار دارد و چهار غرفه پیرامونی محصول، قیمت، مکان و ترویج آن را احاطه کرده‌اند، در حالی‌که یک نیروی رقیب از بیرون در برابر مبادله مقاومت می‌کند." style="width:100%;height:auto;color:var(--ivory);font-family:'Vazirmatn',sans-serif">
+          <defs>
+            <marker id="ar3" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+              <path d="M0,0 L10,5 L0,10 z" fill="var(--turquoise-2)"></path>
+            </marker>
+          </defs>
+          <!-- center exchange -->
+          <circle cx="360" cy="210" r="66" fill="var(--navy-3)" stroke="var(--gold)" stroke-width="2"></circle>
+          <text x="360" y="203" text-anchor="middle" font-size="15" fill="var(--gold-2)" font-weight="700">مبادله</text>
+          <text x="360" y="223" text-anchor="middle" font-size="11.5" fill="var(--plaster)">مخاطب ⇄ برنامه</text>
+
+          <!-- 4 P stalls -->
+          <g>
+            <rect x="300" y="30" width="120" height="52" rx="12" fill="var(--navy-2)" stroke="var(--turquoise-2)" stroke-width="1.6"></rect>
+            <text x="360" y="61" text-anchor="middle" font-size="14" fill="var(--turquoise-2)">محصول</text>
+            <line x1="360" y1="82" x2="360" y2="144" stroke="var(--turquoise-2)" stroke-width="1.6" marker-end="url(#ar3)"></line>
+          </g>
+          <g>
+            <rect x="300" y="338" width="120" height="52" rx="12" fill="var(--navy-2)" stroke="var(--turquoise-2)" stroke-width="1.6"></rect>
+            <text x="360" y="369" text-anchor="middle" font-size="14" fill="var(--turquoise-2)">ترویج</text>
+            <line x1="360" y1="338" x2="360" y2="276" stroke="var(--turquoise-2)" stroke-width="1.6" marker-end="url(#ar3)"></line>
+          </g>
+          <g>
+            <rect x="70" y="184" width="120" height="52" rx="12" fill="var(--navy-2)" stroke="var(--turquoise-2)" stroke-width="1.6"></rect>
+            <text x="130" y="215" text-anchor="middle" font-size="14" fill="var(--turquoise-2)">قیمت</text>
+            <line x1="190" y1="210" x2="294" y2="210" stroke="var(--turquoise-2)" stroke-width="1.6" marker-end="url(#ar3)"></line>
+          </g>
+          <g>
+            <rect x="530" y="184" width="120" height="52" rx="12" fill="var(--navy-2)" stroke="var(--turquoise-2)" stroke-width="1.6"></rect>
+            <text x="590" y="215" text-anchor="middle" font-size="14" fill="var(--turquoise-2)">مکان</text>
+            <line x1="530" y1="210" x2="426" y2="210" stroke="var(--turquoise-2)" stroke-width="1.6" marker-end="url(#ar3)"></line>
+          </g>
+
+          <!-- competition force -->
+          <g>
+            <rect x="520" y="20" width="150" height="50" rx="12" fill="var(--navy)" stroke="var(--crimson)" stroke-width="1.6" stroke-dasharray="5 4"></rect>
+            <text x="595" y="50" text-anchor="middle" font-size="13" fill="#e79aa4">رقیب: راحتی/عادت</text>
+            <line x1="540" y1="68" x2="410" y2="168" stroke="var(--crimson)" stroke-width="1.8" stroke-dasharray="5 4"></line>
+          </g>
+          <text x="360" y="410" text-anchor="middle" font-size="12" fill="var(--plaster)" opacity=".85">چهار اهرم قابل‌کنترل، مبادله را جذاب‌تر می‌کنند؛ رقیب، هم‌زمان در برابر آن مقاومت می‌کند</text>
+        </svg>
+        <figcaption>در بازاریابی اجتماعی، محصول، قیمت، مکان و ترویج چهار اهرمی هستند که مبادله‌ی میان مخاطب و برنامه را جذاب‌تر می‌کنند، در حالی که رفتارهای رقیب هم‌زمان در برابر آن مقاومت می‌کنند.</figcaption>
+      </figure>
+    </section>
+
+    <section class="block" id="l3-exercise">
+      <h3 class="section-title"><span class="chip">✍️</span> تمرین کاربردی</h3>
+      <div class="exercise-card">
+        <h4>طراحی آمیخته‌ی بازاریابی برای یک رفتار سلامت</h4>
+        <ol>
+          <li>یک رفتار سلامت هدف را انتخاب کنید (مثلاً کاهش مصرف نمک، تزریق واکسن آنفلوانزا، غربالگری فشار خون).</li>
+          <li>مخاطب را دست‌کم به دو بخش (Segment) با نیازها و موانع متفاوت تقسیم کنید.</li>
+          <li>برای یکی از این بخش‌ها، «قیمت» واقعی رفتار (زمان، پول، آبرو، تلاش) را فهرست کنید.</li>
+          <li>حداقل یک رفتار «رقیب» را که با رفتار هدف رقابت می‌کند شناسایی کنید.</li>
+          <li>۴P (محصول، قیمت، مکان، ترویج) را برای همان بخش مخاطب، در چند جمله طراحی کنید.</li>
+        </ol>
+      </div>
+    </section>
+
+    <section class="block" id="l3-video">
+      <h3 class="section-title"><span class="chip">🎬</span> ویدئوی تکمیلی</h3>
+      <div class="video-slot"><div class="icon">🎥</div>ویدئوی این درس به‌زودی اینجا اضافه می‌شود.</div>
+    </section>
+
+    <section class="block" id="l3-quiz">
+      <h3 class="section-title"><span class="chip">✅</span> آزمون مفهومی (۱۰ پرسش)</h3>
+      <div class="quiz-progress"><span id="l3-progress-label">۰ از ۱۰</span><div class="bar"><i id="l3-bar"></i></div></div>
+      <div id="l3-quiz-body"></div>
+      <div id="l3-result" hidden></div>
+    </section>
+
+    <section class="block" id="l3-refs">
+      <h3 class="section-title"><span class="chip">📚</span> منابع</h3>
+      <ul class="refs">
+        <li>Kotler, P., &amp; Zaltman, G. (1971). Social marketing: An approach to planned social change. <i>Journal of Marketing, 35</i>(3), 3–12.</li>
+        <li>Andreasen, A. R. (2002). Marketing social marketing in the social change marketplace. <i>Journal of Public Policy &amp; Marketing, 21</i>(1), 3–13.</li>
+        <li>Farrelly, M. C., Healton, C. G., Davis, K. C., Messeri, P., Hersey, J. C., &amp; Haviland, M. L. (2002). Getting to the truth: Evaluating national tobacco countermarketing campaigns. <i>American Journal of Public Health, 92</i>(6), 901–907.</li>
+        <li>National Social Marketing Centre. Benchmark criteria. Retrieved from thensmc.com.</li>
+        <li>Sharma, M., &amp; Romas, J. A. (2008). <i>Theoretical Foundations of Health Education and Health Promotion.</i> Sudbury, MA: Jones and Bartlett.</li>
+      </ul>
+    </section>
+
+  </div>
+</section>
+
+<footer class="site">
+  <div class="tile-border"></div>
+  <div class="wrap" style="margin-top:18px">
+    <div>تئوری‌ها و نظریه‌های تغییر رفتار ۲ — دوره خودآموز نظریه‌های آموزش سلامت بزرگسالان</div>
+    <div style="opacity:.65">طراحی‌شده برای دانشجویان دکتری آموزش بهداشت و ارتقای سلامت</div>
+  </div>
+</footer>
+
+</main>
+
+<script>
+(function(){
+  "use strict";
+
+  /* ---------------- navigation ---------------- */
+  var views = ["home","l1","l2","l3"];
+  function showView(name){
+    views.forEach(function(v){
+      var el = document.getElementById("view-"+v);
+      if(el) el.hidden = (v !== name);
+    });
+    document.querySelectorAll("#mainTabs button").forEach(function(b){
+      b.setAttribute("aria-current", b.getAttribute("data-view") === name ? "true" : "false");
+    });
+    window.scrollTo({top:0, behavior:"instant" in window ? "instant" : "auto"});
+  }
+  document.getElementById("mainTabs").addEventListener("click", function(e){
+    var btn = e.target.closest("button[data-view]");
+    if(!btn) return;
+    showView(btn.getAttribute("data-view"));
+  });
+  document.querySelectorAll(".arch-card").forEach(function(card){
+    card.addEventListener("click", function(){
+      showView(card.getAttribute("data-goto"));
+    });
+  });
+
+  /* ---------------- quiz data ---------------- */
+  var QUIZZES = {
+    l1: [
+      {q:"تفاوت اصلی «آموزش بانکی» با «آموزش مسئله‌محور» در چیست؟",
+       o:["در آموزش بانکی، معلم و یادگیرنده با هم درباره‌ی مسئله واقعی گفت‌وگو می‌کنند","در آموزش بانکی، یادگیرنده اطلاعات را دریافت می‌کند؛ در آموزش مسئله‌محور، معلم و یادگیرنده با هم درباره‌ی مسئله‌ی واقعی گفت‌وگو می‌کنند","آموزش بانکی فقط در بانک‌ها انجام می‌شود","هیچ تفاوتی ندارند، فقط نام‌ها متفاوت است"],
+       c:1, e:"آموزش بانکی، یادگیرنده را ظرف خالی می‌بیند که باید پر شود؛ آموزش مسئله‌محور گفت‌وگوی برابر بر سر مسئله‌ی واقعی زندگی یادگیرنده است."},
+      {q:"در داستان محله‌ی باغ‌گلی، چرا تلاش اول دکتر مریم (ارائه پاورپوینت) اثر نکرد؟",
+       o:["چون خانواده‌ها سواد نداشتند","چون مسئله صرفاً ناآگاهی نبود، بلکه موانع ساختاری (دسترسی، قیمت، امنیت) بود","چون پاورپوینت خیلی کوتاه بود","چون خانواده‌ها به سلامت کودکان‌شان اهمیت نمی‌دادند"],
+       c:1, e:"فریره تأکید می‌کند مشکل اغلب در شرایط ساختاری زندگی مردم است، نه در نبود دانش آن‌ها."},
+      {q:"«آگاهی‌بخشی انتقادی» (Conscientização) دقیقاً به چه معناست؟",
+       o:["حفظ‌کردن اطلاعات پزشکی","توانایی دیدن ریشه‌های اجتماعی-اقتصادی یک مشکل، فراتر از نشانه‌های سطحی آن","گرفتن مدرک آگاهی از سازمان بهداشت","سیاسی‌شدن معلم در کلاس"],
+       c:1, e:"این سازه یعنی عبور از دیدن نشانه‌ها به دیدن علت‌های ساختاری، به کمک گفت‌وگوی جمعی."},
+      {q:"کدام مورد نمونه‌ای از «پراکسیس» است؟",
+       o:["خواندن یک مقاله درباره‌ی تغذیه سالم","برگزاری یک نشست تئوری بدون هیچ اقدام عملی","برگزاری کارگاه آشپزی کم‌هزینه بلافاصله پس از گفت‌وگو درباره‌ی موانع مالی خانواده‌ها","نوشتن گزارش سالانه بدون مشارکت جامعه"],
+       c:2, e:"پراکسیس یعنی پیوند فوری تعمق با یک اقدام واقعی و ملموس."},
+      {q:"مرحله‌ی «نام‌گذاری» در چرخه‌ی فریره چه ویژگی‌ای باید داشته باشد؟",
+       o:["معلم مسئله را از پیش تعیین و اعلام می‌کند","مسئله باید از زبان و تجربه‌ی خودِ مردم بیان شود","فقط با پرسشنامه بسته انجام می‌شود","نیازی به گفت‌وگو ندارد"],
+       c:1, e:"نام‌گذاری باید از دل تجربه‌ی زیسته‌ی خود مخاطبان بیرون بیاید، نه از پیش‌فرض کارشناس."},
+      {q:"چرا فریره رابطه‌ی سنتی معلم-شاگرد را نقد می‌کند؟",
+       o:["چون معلم‌ها معمولاً بی‌سواد هستند","چون این رابطه‌ی سلسله‌مراتبی، یادگیرنده را منفعل و وابسته نگه می‌دارد","چون هزینه‌ی آموزش را بالا می‌برد","چون فقط در مدارس رسمی وجود دارد"],
+       c:1, e:"رابطه‌ی نابرابر معلم-شاگرد، به‌جای توانمندسازی، وابستگی ایجاد می‌کند."},
+      {q:"در سناریوی محله‌ی باغ‌گلی، «نامه‌ی جمعی به شورای شهر برای روشنایی پارک» نمونه‌ی کدام سازه است؟",
+       o:["گفت‌وگوی صرف","تعمق بدون اقدام","عمل جمعی در سطح پراکسیس که به تحول و آگاهی سیاسی نیز پیوند می‌خورد","آموزش بانکی"],
+       c:2, e:"این اقدام، دانش را به عمل جمعی تبدیل و بُعد ساختاری/سیاسی مسئله را نیز روشن می‌کند."},
+      {q:"یکی از محدودیت‌های مهم مدل فریره که در متن به آن اشاره شد چیست؟",
+       o:["نیاز به تجهیزات گران‌قیمت","اگر تسهیل‌گر به‌جای مردم تصمیم بگیرد، همان رابطه‌ی نابرابر گذشته تکرار می‌شود","فقط برای بزرگسالان باسواد قابل استفاده است","هیچ کاربردی در سلامت ندارد"],
+       c:1, e:"اگر تسهیل‌گری واقعی رخ ندهد، مدل می‌تواند دوباره به رابطه‌ی نابرابر آموزش بانکی برگردد."},
+      {q:"نقش «آموزش‌دهنده» در مدل فریره چیست؟",
+       o:["کارشناسی که راه‌حل نهایی را ارائه می‌دهد","ناظر بی‌طرفی که هیچ مشارکتی ندارد","تسهیل‌گر گفت‌وگو که همراه یادگیرندگان به درک و عمل مشترک می‌رسد","فروشنده‌ی محصولات سلامت"],
+       c:2, e:"در این مدل، آموزش‌دهنده هم‌سفرِ گفت‌وگوست، نه صاحب پاسخ نهایی."},
+      {q:"چرخه‌ی سه‌مرحله‌ای فریره (نام‌گذاری، تعمق، عمل) چه ویژگی مهمی دارد؟",
+       o:["خطی و یک‌بار مصرف است","پیوسته و تکرارشونده است؛ نتیجه‌ی هر عمل، نام‌گذاریِ مسئله‌ی بعدی را می‌سازد","فقط مرحله‌ی عمل اهمیت دارد","نیازی به تعمق ندارد"],
+       c:1, e:"این چرخه بارها تکرار می‌شود و هر دور، زمینه‌ساز دور بعدی است."}
+    ],
+    l2: [
+      {q:"نظریه‌ی شبکه اجتماعی چه تفاوتی با رویکردهای فردمحور سلامت دارد؟",
+       o:["فقط به ژنتیک فرد توجه می‌کند","به‌جای تمرکز صرف بر فرد، به روابط و نقشه‌ی پیوندهای او با دیگران توجه می‌کند","هیچ تفاوتی ندارد","فقط درباره‌ی شبکه‌های اجتماعی مجازی است"],
+       c:1, e:"این نظریه سلامت را برآمده از شبکه‌ی روابط فرد می‌داند، نه صرفاً ویژگی‌های فردی."},
+      {q:"در داستان دکه‌ی حاج‌آقا، چرا او در انتقال پیام سلامت مؤثرتر از پوستر بود؟",
+       o:["چون تحصیلات پزشکی داشت","چون در مرکز شبکه‌ی روابط محله قرار داشت و مورد اعتماد بود (مرکزیت بالا)","چون هزینه‌ی کمتری داشت","چون از طرف دولت مأمور شده بود"],
+       c:1, e:"مرکزیت بالا یعنی دسترسی گسترده و اعتماد در شبکه، که پیام را سریع‌تر پخش می‌کند."},
+      {q:"«تراکم شبکه» به چه معناست؟",
+       o:["تعداد کل افراد شبکه","اینکه چه‌قدر اعضای شبکه‌ی یک فرد، خودشان هم با هم در ارتباط‌اند","فاصله‌ی جغرافیایی بین افراد","میزان استفاده افراد از تلفن همراه"],
+       c:1, e:"تراکم به میزان درهم‌تنیدگی روابط درون یک شبکه اشاره دارد، نه به اندازه‌ی آن."},
+      {q:"طبق نظریه‌ی گرانووتر، «پیوندهای ضعیف» چرا اهمیت دارند؟",
+       o:["چون قابل‌اعتمادتر از دوستان صمیمی‌اند","چون معمولاً اطلاعات تازه و متفاوتی را از بیرون یک گروه بسته وارد می‌کنند","چون هزینه‌ی کمتری برای حفظ دارند","چون همیشه بین اعضای خانواده برقرارند"],
+       c:1, e:"پیوندهای ضعیف پلی میان گروه‌های جدا از هم می‌سازند و اطلاعات تازه می‌آورند."},
+      {q:"«همگنی/تجانس» (Homophily) در شبکه‌ی اجتماعی به چه پدیده‌ای اشاره دارد؟",
+       o:["تمایل افراد به ارتباط نزدیک‌تر با کسانی که شبیه خودشان‌اند","برابری کامل درآمد افراد یک شبکه","یکسان‌بودن اطلاعات پزشکی همه‌ی افراد","نبود هیچ تفاوتی بین گروه‌ها"],
+       c:0, e:"همگنی یعنی گرایش طبیعی افراد به نزدیکی با هم‌سن‌وسال‌ها یا هم‌شغل‌های خودشان."},
+      {q:"در الگوی «رهبر فکری محبوب» (Kelly et al., 1997)، چرا فقط چند نفر محوری آموزش دیدند، نه کل جامعه؟",
+       o:["چون بودجه‌ی کافی برای آموزش همه نبود","چون هدف استفاده از پیوندهای موجودِ آن افراد برای انتشار طبیعی پیام در شبکه بود","چون فقط آن‌ها سواد خواندن داشتند","چون قانون این‌طور الزام کرده بود"],
+       c:1, e:"با آموزش افراد محوری، پیام از طریق روابط طبیعیِ موجود، به‌جای مداخله‌ی مستقیم در همه، پخش می‌شود."},
+      {q:"کدام مورد نمونه‌ی «حمایت ابزاری» (Instrumental support) است؟",
+       o:["گوش‌دادن همدلانه به نگرانی‌های یک بیمار","رساندن یک همسایه‌ی سالمند با ماشین به مرکز واکسیناسیون","دادن اطلاعات درباره‌ی ساعات کار درمانگاه","تشویق کلامی برای ادامه‌ی رژیم غذایی"],
+       c:1, e:"حمایت ابزاری یعنی کمک عملی و ملموس، مثل رساندن فرد به مقصد."},
+      {q:"سرمایه‌ی اجتماعی «پیونددهنده» (Bonding) با «پل‌زننده» (Bridging) چه تفاوتی دارد؟",
+       o:["پیونددهنده درون یک گروه همگن است؛ پل‌زننده میان گروه‌های متفاوت ارتباط برقرار می‌کند","هر دو یک مفهوم‌اند","پیونددهنده فقط در خانواده وجود دارد","پل‌زننده فقط آنلاین است"],
+       c:0, e:"پیونددهنده روابط درون‌گروهی و پل‌زننده روابط میان‌گروهی را توصیف می‌کند."},
+      {q:"سرمایه‌ی «اتصال‌دهنده» (Linking capital) به کدام رابطه اشاره دارد؟",
+       o:["رابطه‌ی میان دو دوست صمیمی","رابطه‌ی میان مردم عادی و نهادها/نظام سلامت","رابطه‌ی میان دو محله‌ی همسایه","رابطه‌ی میان اعضای یک خانواده"],
+       c:1, e:"سرمایه‌ی اتصال‌دهنده، دسترسی مردم به منابع نهادی مانند نظام سلامت را توصیف می‌کند."},
+      {q:"نتیجه‌ی مهم مطالعه‌ی Kelly و همکاران (۱۹۹۷) چه بود؟",
+       o:["رفتار فقط در افرادی که مستقیم آموزش دیده بودند تغییر کرد","رفتار پرخطر در سطح کل جامعه کاهش یافت، فراتر از مخاطبان مستقیم مداخله","هیچ تغییری مشاهده نشد","فقط نگرش افراد تغییر کرد، نه رفتار آن‌ها"],
+       c:1, e:"این یافته نشان داد اثر مداخله از طریق شبکه، به‌کل جامعه تعمیم می‌یابد، نه فقط افراد آموزش‌دیده."}
+    ],
+    l3: [
+      {q:"ایده‌ی محوری بازاریابی اجتماعی طبق کاتلر و زالتمن (۱۹۷۱) چیست؟",
+       o:["فروش محصولات دارویی با تخفیف","استفاده از ابزارهای بازاریابی تجاری برای ترویج رفتاری که سود آن برای فرد و جامعه است، نه سود مالی یک شرکت","تبلیغات تلویزیونی برای بیمارستان‌ها","فروش بیمه‌ی سلامت"],
+       c:1, e:"بازاریابی اجتماعی همان ابزارهای بازاریابی تجاری را برای هدف اجتماعی/سلامتی به‌کار می‌گیرد."},
+      {q:"«مبادله» (Exchange) در بازاریابی اجتماعی یعنی چه؟",
+       o:["تعویض دارو با داروی مشابه","فرد زمانی رفتار را تغییر می‌دهد که آنچه دریافت می‌کند از آنچه می‌دهد ارزشمندتر باشد","مبادله‌ی پول بین سازمان‌های سلامت","تعویض کارکنان یک برنامه سلامت"],
+       c:1, e:"مبادله، هسته‌ی مرکزی این نظریه است: سود درک‌شده باید بر هزینه‌ی درک‌شده بچربد."},
+      {q:"در داستان «صبح‌های پیاده»، چرا پوستر اول اثر نکرد؟",
+       o:["چون خط پوستر خوانا نبود","چون فقط دانش را افزایش می‌داد، بدون کاهش «قیمت» واقعی رفتار (وقت، تنهایی، ناراحتی اجتماعی)","چون زبان پوستر انگلیسی بود","چون هیچ‌کس پوستر را ندید"],
+       c:1, e:"افزایش آگاهی به‌تنهایی کافی نیست؛ باید موانع واقعی رفتار هم کاهش یابد."},
+      {q:"«قیمت» (Price) در بازاریابی اجتماعی لزوماً به چه معناست؟",
+       o:["فقط هزینه‌ی مالی رفتار","هر هزینه‌ای که مخاطب برای انجام رفتار متحمل می‌شود: زمان، تلاش، آبرو یا پول","قیمت بلیت ورود به برنامه","دستمزد کارشناس سلامت"],
+       c:1, e:"قیمت در این نظریه مفهومی گسترده‌تر از پول دارد و شامل زمان، تلاش و هزینه‌ی اجتماعی هم می‌شود."},
+      {q:"«بخش‌بندی مخاطب» (Segmentation) چرا در طراحی کمپین سلامت اهمیت دارد؟",
+       o:["چون یک پیام واحد برای همه گروه‌ها به یک اندازه اثر می‌کند","چون زیرگروه‌های مخاطب موانع و انگیزه‌های متفاوتی دارند و به برنامه‌ی جداگانه نیاز دارند","چون قانون آن را الزامی کرده است","فقط برای کاهش هزینه‌ی چاپ است"],
+       c:1, e:"بخش‌بندی اجازه می‌دهد پیام و برنامه، متناسب با نیاز واقعی هر زیرگروه طراحی شود."},
+      {q:"در معیارهای محک اَندریاسن/NSMC، تمرکز اصلی کمپین موفق بر چیست؟",
+       o:["صرفاً افزایش آگاهی عمومی","تغییر رفتار قابل‌سنجش، نه فقط دانش یا نگرش","طراحی گرافیکی جذاب","بودجه‌ی تبلیغاتی بالا"],
+       c:1, e:"بازاریابی اجتماعی موفق، با شاخص رفتار واقعی سنجیده می‌شود، نه فقط آگاهی."},
+      {q:"«رقیب» (Competition) در بازاریابی اجتماعی به چه چیزی اشاره دارد؟",
+       o:["سازمان‌های غیردولتی رقیب","هر رفتار یا هنجار جایگزینی که در برابر رفتار هدف مقاومت می‌کند، مثل استراحت‌کردن به‌جای پیاده‌روی","شرکت‌های داروسازی رقیب","کشورهای همسایه"],
+       c:1, e:"رقیب هر چیزی است که مخاطب را از رفتار هدف دور نگه می‌دارد، از عادت تا هنجار اجتماعی."},
+      {q:"در سناریوی «صبح‌های پیاده»، چرا «محصول» واقعی، رفاقت و همراهی تعریف شد نه فقط سلامت قلب؟",
+       o:["چون سلامت قلب اهمیتی نداشت","چون بینش حاصل از پژوهش مخاطب نشان داد انگیزه‌ی واقعی زنان، نه سلامت انتزاعی، بلکه هم‌نشینی بود","چون سلامت قلب گران است","چون مسجد فقط برای رفاقت است"],
+       c:1, e:"بازاریابی اجتماعی موفق، محصول را بر اساس بینش واقعی مخاطب تعریف می‌کند، نه فرض کارشناس."},
+      {q:"کمپین ملی «truth» علیه سیگارکشیدن نوجوانان (Farrelly et al., 2002) چه اصلی از بازاریابی اجتماعی را به‌کار برد؟",
+       o:["نادیده‌گرفتن رقیب و تمرکز صرف بر آگاهی پزشکی","شناسایی رقیب (هنجار اجتماعی) و طراحی پیامی هم‌ذات با انگیزه‌های واقعی نوجوانان","استفاده از یک پیام یکسان برای همه‌ی سنین","حذف کامل تبلیغات"],
+       c:1, e:"این کمپین با شناخت دقیق مخاطب و رقیب، توانست نرخ سیگارکشیدن نوجوانان را کاهش دهد."},
+      {q:"کدام گزینه به‌درستی چهار عنصر آمیخته‌ی بازاریابی (۴P) در سلامت را نشان می‌دهد؟",
+       o:["پزشک، بیمار، دارو، بیمارستان","محصول، قیمت، مکان، ترویج","تبلیغ، فروش، رقابت، سود","گفت‌وگو، تعمق، عمل، تحول"],
+       c:1, e:"محصول، قیمت، مکان و ترویج چهار اهرم کلاسیک آمیخته‌ی بازاریابی‌اند."}
+    ]
+  };
+
+  var FA_DIGITS = ["۰","۱","۲","۳","۴","۵","۶","۷","۸","۹"];
+  function faNum(n){ return String(n).split("").map(function(d){return FA_DIGITS[+d] !== undefined ? FA_DIGITS[+d] : d;}).join(""); }
+
+  function safeGet(key){ try{ return localStorage.getItem(key); }catch(e){ return null; } }
+  function safeSet(key,val){ try{ localStorage.setItem(key,val); }catch(e){} }
+
+  function renderQuiz(id){
+    var data = QUIZZES[id];
+    var body = document.getElementById(id+"-quiz-body");
+    var label = document.getElementById(id+"-progress-label");
+    var bar = document.getElementById(id+"-bar");
+    var resultBox = document.getElementById(id+"-result");
+    if(!body) return;
+    body.innerHTML = "";
+    resultBox.hidden = true;
+    var answered = 0, score = 0;
+
+    var best = safeGet("caravanserai_"+id+"_best");
+    if(best){
+      var note = document.createElement("div");
+      note.className = "best-score";
+      note.textContent = "بهترین نتیجه‌ی پیشین شما: " + faNum(best) + " از ۱۰";
+      body.appendChild(note);
+    }
+
+    function updateProgress(){
+      label.textContent = faNum(answered) + " از ۱۰";
+      bar.style.width = (answered/10*100) + "%";
+      if(answered === data.length){
+        resultBox.hidden = false;
+        var pct = Math.round(score/data.length*100);
+        resultBox.innerHTML =
+          '<div class="quiz-result"><div>نتیجه‌ی شما</div>'+
+          '<div class="score">'+faNum(score)+' / '+faNum(data.length)+'</div>'+
+          '<div style="color:var(--plaster);font-size:.9rem">'+faNum(pct)+' درصد پاسخ درست</div>'+
+          '<button class="btn-reset" type="button" id="'+id+'-reset">شروع دوباره</button></div>';
+        var prevBest = parseInt(safeGet("caravanserai_"+id+"_best") || "0", 10);
+        if(score > prevBest) safeSet("caravanserai_"+id+"_best", String(score));
+        document.getElementById(id+"-reset").addEventListener("click", function(){ renderQuiz(id); window.location.hash = "#"+id+"-quiz"; });
+      }
+    }
+
+    data.forEach(function(item, qi){
+      var card = document.createElement("div");
+      card.className = "qcard";
+      var qtext = document.createElement("div");
+      qtext.className = "qtext";
+      qtext.textContent = faNum(qi+1) + ". " + item.q;
+      card.appendChild(qtext);
+      var opts = document.createElement("div");
+      opts.className = "opts";
+      item.o.forEach(function(optText, oi){
+        var b = document.createElement("button");
+        b.type = "button";
+        b.className = "opt";
+        b.textContent = optText;
+        b.addEventListener("click", function(){
+          if(b.disabled) return;
+          var allBtns = opts.querySelectorAll("button.opt");
+          allBtns.forEach(function(x){ x.disabled = true; });
+          if(oi === item.c){
+            b.classList.add("correct");
+            score++;
+          } else {
+            b.classList.add("wrong");
+            allBtns[item.c].classList.add("correct");
+          }
+          var ex = document.createElement("div");
+          ex.className = "explain";
+          ex.textContent = item.e;
+          card.appendChild(ex);
+          answered++;
+          updateProgress();
+        });
+        opts.appendChild(b);
+      });
+      card.appendChild(opts);
+      body.appendChild(card);
+    });
+    updateProgress();
+  }
+
+  ["l1","l2","l3"].forEach(renderQuiz);
+})();
+</script>
